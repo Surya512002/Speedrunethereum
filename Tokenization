@@ -15,12 +15,27 @@ in the same terminal, start your local network (a blockchain emulator in your co
 
 in a second terminal window, 🛰 deploy your contract (locally):
 
-       cd challenge-tokenization
-       yarn deploy
+           cd challenge-tokenization
+           yarn deploy
 
 in a third terminal window, start your 📱 frontend:
 
-      cd challenge-tokenization
-      yarn start
+           cd challenge-tokenization
+           yarn start
 
 📱 Open http://localhost:3000 to see the app
+
+Checkpoint 1: ⛽️ Gas & Wallets 👛
+⛽️ Gas is the tiny fee that powers your transactions, like postage for the blockchain. Grab test funds from the faucet so you can interact onchain.
+
+gas&wallet
+
+🦊 At first, don't connect MetaMask. If you are already connected, click Disconnect:
+
+🔥 We'll use burner wallets on localhost. They're disposable wallets that auto-sign transactions so you can keep building.
+
+👛 Explore burner wallets in 🏗 Scaffold-ETH 2: open an incognito window and visit http://localhost:3000. 
+    You'll see a totally new address in the top-right. 
+    Copy it and send test funds from your first window using the Faucet button (bottom-left):
+
+👨🏻‍🚒 When you close the incognito window, that account is gone forever. Burner wallets are perfect for local dev; you'll switch to a permanent wallet on public networks.
