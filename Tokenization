@@ -39,3 +39,18 @@ gas&wallet
     Copy it and send test funds from your first window using the Faucet button (bottom-left):
 
 👨🏻‍🚒 When you close the incognito window, that account is gone forever. Burner wallets are perfect for local dev; you'll switch to a permanent wallet on public networks.
+
+Checkpoint 2: 🖨 Minting
+🦓 In this challenge we will be minting (or creating) collectible Buffalo, Zebra and Rhino NFTs. Their metadata is stored on IPFS. 
+These won't feign any real value but what price can you put on your own understanding of intricate blockchain ownership designs? Face it, it's priceless!
+
+
+✏️ Time to create something new. Click MINT NFT in the My NFTs tab to mint an ERC-721 token; your unique, onchain collectible.
+
+    👀 You should see your NFTs start to show up:
+
+👛 Open an incognito window and navigate to http://localhost:3000.
+
+🎟 Try a transfer! Send a token to the incognito window address using the UI:
+
+
