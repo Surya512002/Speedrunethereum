@@ -5,3 +5,22 @@ Node (>= v20.18.3)
 Yarn (v1 or v2+)
 Git
 Then download the challenge to your computer and install dependencies by running:
+           npx create-eth@1.0.5 -e challenge-tokenization challenge-tokenization
+          
+           cd challenge-tokenization
+
+in the same terminal, start your local network (a blockchain emulator in your computer):
+
+           yarn chain
+
+in a second terminal window, 🛰 deploy your contract (locally):
+
+       cd challenge-tokenization
+       yarn deploy
+
+in a third terminal window, start your 📱 frontend:
+
+      cd challenge-tokenization
+      yarn start
+
+📱 Open http://localhost:3000 to see the app
