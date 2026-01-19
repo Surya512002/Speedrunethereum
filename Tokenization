@@ -28,6 +28,7 @@ in a third terminal window, start your 📱 frontend:
 Checkpoint 1: ⛽️ Gas & Wallets 👛
 ⛽️ Gas is the tiny fee that powers your transactions, like postage for the blockchain. Grab test funds from the faucet so you can interact onchain.
 
+
 gas&wallet
 
 🦊 At first, don't connect MetaMask. If you are already connected, click Disconnect:
@@ -52,5 +53,15 @@ These won't feign any real value but what price can you put on your own understa
 👛 Open an incognito window and navigate to http://localhost:3000.
 
 🎟 Try a transfer! Send a token to the incognito window address using the UI:
+
+👛 Try to mint a token from the incognito window
+
+Can you mint a token with no funds in this address? You might need to grab funds from the faucet to pay for the gas.
+
+🕵🏻‍♂️ Inspect the Debug Contracts tab to figure out what address is the owner of a specific token (ownerOf(tokenId)) in YourCollectible.
+
+🔏 You can also check out your smart contract YourCollectible.sol in packages/hardhat/contracts.
+
+💼 Take a quick look at your deploy script 01_deploy_your_collectible.ts in packages/hardhat/deploy.
 
 
