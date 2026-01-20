@@ -3,11 +3,26 @@ Get your environment running first.
 
 1.)Terminal 1: Download and start the chain.
 
+          Bash
            npx create-eth@2.0.4 -e challenge-dice-game challenge-dice-game
            cd challenge-dice-game
            yarn chain
 
 2.)Terminal 2: Start the app.
 
+         Bash
            cd challenge-dice-game
            yarn start
+
+3.)Terminal 3: Deploy the initial contracts.
+
+         Bash
+          cd challenge-dice-game
+          yarn deploy
+
+Phase 2: 🔑 Write the Exploit Contract
+Open packages/hardhat/contracts/RiggedRoll.sol. This is where you will do all your coding.
+
+Step 1: Clean the file Delete the existing code inside RiggedRoll.sol (except the license and imports) and replace it with the logic below.
+
+Step 2: Implement the Solution Here is the complete code combining Checkpoint 2 (The Rigged Roll) and Checkpoint 3 (Withdraw).
