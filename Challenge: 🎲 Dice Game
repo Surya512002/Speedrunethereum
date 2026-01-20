@@ -116,3 +116,27 @@ TypeScript
 // but ensure you can withdraw:
 // await riggedRoll.transferOwnership("YOUR_FRONTEND_ADDRESS_HERE");
 Note: For the local test environment, the deployer is often the same account used in the first hardhat account, so standard deployment usually works fine.
+
+hase 4: 🧪 Test It
+Open your browser to http://localhost:3000.
+
+Fund your Contract:
+
+Find the RiggedRoll contract in the "Debug Contracts" tab.
+
+Copy its address.
+
+Use the Faucet (bottom left) to send 1 ETH to the RiggedRoll address.
+
+Attack:
+
+In the "Debug Contracts" tab, click the riggedRoll button on your RiggedRoll contract.
+
+Watch the console: If the roll is > 5, you will see an error in the console (and a revert on screen). Your balance does not decrease.
+
+Keep clicking until you hit a winning number. The transaction will succeed, and the RiggedRoll balance will increase (Prize won!).
+
+Withdraw:
+
+Call the withdraw function in the Debug tab to empty the winnings back to your wallet.
+
