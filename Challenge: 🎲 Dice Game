@@ -92,3 +92,27 @@ contract RiggedRoll is Ownable {
         require(success, "Withdraw failed");
     }
 }
+
+Phase 3: 🚀 Deploy & Attack
+Now you need to tell the system to deploy your new contract.
+
+Open packages/hardhat/deploy/01_deploy_riggedRoll.ts.
+
+Uncomment the deployment code. It is usually commented out by default. Ensure it looks like this:
+
+TypeScript
+const riggedRoll = await deploy("RiggedRoll", {
+  from: deployer,
+  args: [diceGame.address],
+  log: true,
+  autoMine: true,
+});
+Transfer Ownership (Vital for frontend): Add this line right after the deploy command in the same file. This allows your frontend wallet to call withdraw.
+
+TypeScript
+// Get the frontend address (usually the first signer in Hardhat)
+// OR just transfer it to your specific address if testing manually
+// For the challenge script, simple deployment is often enough, 
+// but ensure you can withdraw:
+// await riggedRoll.transferOwnership("YOUR_FRONTEND_ADDRESS_HERE");
+Note: For the local test environment, the deployer is often the same account used in the first hardhat account, so standard deployment usually works fine.
