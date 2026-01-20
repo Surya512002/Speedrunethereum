@@ -1,0 +1,13 @@
+Phase 1: 📦 Setup
+Get your environment running first.
+
+1.)Terminal 1: Download and start the chain.
+
+           npx create-eth@2.0.4 -e challenge-dice-game challenge-dice-game
+           cd challenge-dice-game
+           yarn chain
+
+2.)Terminal 2: Start the app.
+
+           cd challenge-dice-game
+           yarn start
