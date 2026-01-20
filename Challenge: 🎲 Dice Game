@@ -140,3 +140,22 @@ Withdraw:
 
 Call the withdraw function in the Debug tab to empty the winnings back to your wallet.
 
+Phase 5: 🚢 Ship It
+Generate Wallet: Run yarn generate to create a deployer wallet.
+
+Fund Wallet: Send Sepolia ETH to the address shown.
+
+Deploy:
+
+Bash
+yarn deploy --network sepolia
+(Or optimismSepolia)
+
+Verify:
+
+Bash
+yarn verify --network sepolia
+Submit: Paste the contract address into SpeedrunEthereum.com.
+
+Also Deploy : yarn vercel 
+
