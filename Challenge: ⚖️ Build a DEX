@@ -4,3 +4,11 @@ Build and understand an Automated Market Maker (AMM)
 Learn about liquidity pools and impermanent loss
 
 Design and build functions for swapping tokens and providing/withdrawing liquidity
+
+Checkpoint 0: 📦 Environment 📚
+
+Before you begin, you need to install the following tools:
+
+         Node (>= v20.18.3)
+         Yarn (v1 or v2+)
+         Git
